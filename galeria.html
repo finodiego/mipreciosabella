@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería</title>
+  <link rel="stylesheet" href="css/galeria.css" />
+</head>
+<body class="galeria-body">
+  <div class="fondo"></div>
+
+  <div class="contenido-galeria">
+    <h1 class="galeria-titulo">Mi Galería</h1>
+
+    <div class="galeria-mix">
+        <div class="row">
+          <div class="big">
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="0">
+              <img src="img/galeria.jpg" alt="Imagen 1" />
+            </a>
+          </div>
+          <div class="small">
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="1">
+              <img src="img/galeria.jpg" alt="Imagen 2" />
+            </a>
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="2">
+              <img src="img/galeria.jpg" alt="Imagen 3" />
+            </a>
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="3">
+              <img src="img/galeria.jpg" alt="Imagen 4" />
+            </a>
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="4">
+              <img src="img/galeria.jpg" alt="Imagen 5" />
+            </a>
+          </div>
+        </div>
+      
+        <div class="row reverse">
+          <div class="small">
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="5">
+              <img src="img/galeria.jpg" alt="Imagen 6" />
+            </a>
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="6">
+              <img src="img/galeria.jpg" alt="Imagen 7" />
+            </a>
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="7">
+              <img src="img/galeria.jpg" alt="Imagen 8" />
+            </a>
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="8">
+              <img src="img/galeria.jpg" alt="Imagen 9" />
+            </a>
+          </div>
+          <div class="big">
+            <a href="img/galeria.jpg" class="lightbox-trigger" data-index="9">
+              <img src="img/galeria.jpg" alt="Imagen 10" />
+            </a>
+          </div>
+        </div>
+      </div>
+      
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Imagen ampliada">
+    <div class="lightbox-controls">
+      <span class="prev">&#10094;</span>
+      <span class="next">&#10095;</span>
+    </div>
+  </div>
+
+  <script src="js/lightbox.js"></script>
+</body>
+</html>
