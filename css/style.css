@@ -1,94 +1,100 @@
 /* Reinicio básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Fondo con imagen */
-  body {
-    background-image: url("../img/fondo.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Filtro de fondo para oscurecer un poco la imagen */
-  .overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  /* Contenedor general de contenido */
-  .contenido {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 40px 20px;
-    gap: 60px; /* Espacio entre título y botones */
-  }
-  
-  /* Estilo del título */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo con imagen */
+body {
+  background-image: url("../img/fondo.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Filtro de fondo para oscurecer un poco la imagen */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor general de contenido */
+.contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Importante para separar arriba y abajo */
+  align-items: center;
+  height: 100vh; /* Ocupa toda la pantalla */
+  width: 100%;
+  max-width: 400px; /* Para que no quede muy ancho en móviles grandes */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Estilo del título */
+.titulo {
+  font-size: 36px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  /* Para que quede en la parte superior, no necesita margin */
+}
+
+/* Contenedor de botones */
+.botones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%; /* que ocupen ancho completo */
+  margin-bottom: 20px; /* un poco de margen abajo */
+}
+
+/* Botones con efecto */
+.btn {
+  padding: 20px 50px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+  width: 100%; /* que el botón ocupe todo el ancho del contenedor */
+  max-width: 300px; /* para que no sea demasiado ancho */
+  margin: 0 auto; /* centrar horizontal */
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
   .titulo {
-    font-size: 36px;
-    color: white;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-size: 28px;
   }
-  
-  /* Responsive del título */
-  @media screen and (max-width: 600px) {
-    .titulo {
-      font-size: 28px;
-    }
-  }
-  
-  
-  /* Contenedor de botones */
-  .botones-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Botones con efecto */
+
   .btn {
-    padding: 20px 50px;
-    font-size: 24px;
-    font-weight: bold;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease-in-out;
+    font-size: 20px;
+    padding: 18px 40px;
+    max-width: 100%; /* que en móviles pequeños ocupe el ancho completo */
   }
-  
-  .btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(45deg, #ff6a00, #ee0979);
+
+  .botones-container {
+    gap: 15px;
   }
-  
-  @media screen and (max-width: 600px) {
-    .btn {
-      font-size: 20px;
-      padding: 18px 40px;
-    }
-  
-    .botones-container {
-      gap: 20px;
-    }
-  }
-  
-  
-  
+}
