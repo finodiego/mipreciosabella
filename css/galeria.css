@@ -1,236 +1,220 @@
-/* Fondo fijo en un div separado */
+/* Fondo fijo */
 .fondo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../img/fondo.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1; /* para que quede detrás del contenido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/fondo.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* Body */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  background: transparent;
+}
+
+/* Contenedor */
+.galeria-body {
+  min-height: 100vh;
+  padding: 20px 0;
+  background: transparent;
+}
+
+.contenido-galeria {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.galeria-titulo {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 2;
+}
+
+/* 🎯 Galería GRID personalizada */
+.galeria-mix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.galeria-mix a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.galeria-mix img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.galeria-mix img:hover {
+  transform: scale(1.1);
+}
+
+/* Distribución personalizada */
+.img1 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.img12 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  animation: fadeSlide 0.4s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
   }
-  
-  /* El body sin flex */
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    background: transparent; /* importante para que no tape el fondo */
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* Contenedor principal */
-  .galeria-body {
-    min-height: 100vh;
-    padding: 20px 0;
-    background: transparent; /* para asegurar que no tape fondo */
-  }
-  
-  /* Contenido */
-  .contenido-galeria {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1; /* para que quede encima del fondo */
-  }
-  
-  /* Título visible */
-  .galeria-titulo {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-    position: relative;
-    z-index: 2; /* aseguramos que esté visible */
-  }
-  
-  /* Galería collage */
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.lightbox-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+}
+
+.lightbox-controls span {
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.lightbox-controls span:hover {
+  color: #ccc;
+}
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
   .galeria-mix {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
   }
-  
-  /* Filas con imagen grande + grid 2x2 */
-  .row {
-    display: flex;
-    gap: 20px;
-    align-items: stretch;
+
+  .img1,
+  .img12 {
+    grid-column: span 2;
+    grid-row: span 2;
   }
-  
-  /* Para invertir orden en filas */
-  .row.reverse {
-    flex-direction: row-reverse;
-  }
-  
-  /* Imagen grande */
-  .big {
-    flex: 2;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-  }
-  
-  .big img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .big img:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Grid 2x2 para imágenes pequeñas */
-  .small {
-    flex: 1;
+}
+
+@media (max-width: 480px) {
+  .galeria-mix {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 150px);
-    gap: 15px;
+    grid-auto-rows: 110px;
+    gap: 8px;
   }
-  
-  .small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    cursor: pointer;
-    transition: transform 0.3s ease;
+
+  /* Imagen grande destacada al inicio */
+  .galeria-mix a:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
   }
-  
-  .small img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+
+  /* Imágenes normales: sin span, siguen flujo */
+  .galeria-mix a:nth-child(2),
+  .galeria-mix a:nth-child(3),
+  .galeria-mix a:nth-child(4),
+  .galeria-mix a:nth-child(5),
+  .galeria-mix a:nth-child(6),
+  .galeria-mix a:nth-child(7),
+  .galeria-mix a:nth-child(8),
+  .galeria-mix a:nth-child(9) {
+    grid-column: span 1;
+    grid-row: span 1;
   }
-  
-  /* Lightbox (igual que antes, para enfoque) */
-  .lightbox {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
+
+  /* Imagen al centro destacada */
+  .galeria-mix a:nth-child(10) {
+    grid-column: span 2;
+    grid-row: span 2;
   }
-  
-  .lightbox.open {
-    display: flex;
+
+  /* Últimas imágenes en flujo normal */
+  .galeria-mix a:nth-child(11),
+  .galeria-mix a:nth-child(12),
+  .galeria-mix a:nth-child(13),
+  .galeria-mix a:nth-child(14) {
+    grid-column: span 1;
+    grid-row: span 1;
   }
-  
-  .lightbox-content {
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 10px;
-    animation: fadeSlide 0.4s ease;
+
+  /* Última imagen destacada (opcional) */
+  .galeria-mix a:nth-child(15) {
+    grid-column: span 2;
+    grid-row: span 2;
   }
-  
-  @keyframes fadeSlide {
-    from {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  /* Botón cerrar */
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 35px;
-    color: white;
-    cursor: pointer;
-    z-index: 10000;
-  }
-  
-  /* Flechas */
-  .lightbox-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    transform: translateY(-50%);
-  }
-  
-  .lightbox-controls span {
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-    transition: color 0.3s ease;
-  }
-  
-  .lightbox-controls span:hover {
-    color: #ccc;
-  }
-  
-  /* Responsive mejorado para móvil */
-@media screen and (max-width: 900px) {
-    .row {
-      flex-direction: column;
-      gap: 20px;
-    }
-  
-    .big {
-      width: 100%;
-      height: 250px; /* alto fijo */
-      margin-bottom: 15px;
-    }
-  
-    .big img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-  
-    .small {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 0;
-      gap: 10px;
-    }
-  
-    /* Para que las imágenes pequeñas sean cuadradas */
-    .small img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .contenido-galeria {
-      padding: 0 10px; /* margen lateral pequeño */
-    }
-  
-    .small {
-      grid-template-columns: 1fr;
-      grid-auto-rows: 0;
-      gap: 10px;
-    }
-  
-    .small img {
-      aspect-ratio: 1 / 1;
-      width: 100%;
-      height: auto;
-    }
-  }
+}
+
