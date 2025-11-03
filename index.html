@@ -5,16 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi Portafolio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 🖤 PRELOADER -->
+    <div id="preloader">
+      <div class="corazon"></div>
+    </div>
+
   <div class="overlay">
     <div class="contenido">
-      <h1 class="titulo">Bienvenido a mi Portafolio</h1>
+      <h1 class="titulo">Preciosa bella, me encantas 😍</h1>
       <div class="botones-container">
-        <button class="btn" onclick="location.href='galeria.html'">Recuerditos ❤️</button>
-        <button class="btn" onclick="location.href='#'">Video ❤️</button>
+        <button class="btn" onclick="location.href='galeria.html'">Recuerditos 🎞️❤️</button>
+        <button class="btn" onclick="location.href='#'">Video 🎥❤️</button>
       </div>
     </div>
   </div>
+
+  <!-- SCRIPT PARA OCULTAR PRELOADER -->
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 1000); // tiempo del desvanecimiento
+      }, 2000); // tiempo que se muestra el preloader antes de desvanecer (2s)
+    });
+  </script>
 </body>
 </html>

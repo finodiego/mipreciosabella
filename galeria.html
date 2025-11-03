@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galería</title>
   <link rel="stylesheet" href="css/galeria.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body class="galeria-body">
+      <!-- 🖤 PRELOADER -->
+      <div id="preloader">
+        <div class="corazon"></div>
+      </div>
   <div class="fondo"></div>
 
   <div class="contenido-galeria">
-    <h1 class="galeria-titulo">"Recuerdos Juntos ❤️"</h1>
+    <h1 class="galeria-titulo">"Recuerdos juntos ❤️"</h1>
 
     <div class="galeria-mix">
       <a href="img/galeria1.jpg" class="lightbox-trigger img1" data-index="0">
@@ -41,11 +47,11 @@
       </a>
       
       <a href="img/galeria8.jpg" class="lightbox-trigger" data-index="7">
-        <img src="img/galeria8.jpg" alt="Un año desde que me gustaste por primera vez ❤️19-09-2025 ❤️" />
+        <img src="img/galeria8.jpg" alt="❤️18-09-2025 ❤️" />
       </a>
       
         <a href="img/galeria9.jpg" class="lightbox-trigger" data-index="8">
-        <img src="img/galeria9.jpg" alt="❤️ 20-09-2025 ❤️" />
+        <img src="img/galeria9.jpg" alt="Un año desde que me gustaste por primera vez❤️ 19-09-2025 ❤️" />
       </a>
       <a href="img/galeria10.jpg" class="lightbox-trigger" data-index="8">
         <img src="img/galeria10.jpg" alt="❤️ 28-09-2025 ❤️" />
@@ -68,6 +74,9 @@
       </a>
       
     </div>
+    <div class="botones-container">
+      <button class="btn" onclick="location.href='index.html'">⬅️ Volver ❤️</button>
+    </div>
   </div>
 
   <!-- Lightbox -->
@@ -83,6 +92,19 @@
       <span class="next">&#10095;</span>
     </div>
   </div>
+
+    <!-- SCRIPT PARA OCULTAR PRELOADER -->
+    <script>
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 1000); // tiempo del desvanecimiento
+        }, 2000); // tiempo que se muestra el preloader antes de desvanecer (2s)
+      });
+    </script>
 
   <script src="js/lightbox.js"></script>
 </body>
